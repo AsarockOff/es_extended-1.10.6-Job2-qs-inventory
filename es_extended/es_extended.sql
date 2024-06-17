@@ -15,6 +15,8 @@ CREATE TABLE `users` (
 	`inventory` LONGTEXT NULL DEFAULT NULL,
 	`job` VARCHAR(20) NULL DEFAULT 'unemployed',
 	`job_grade` INT NULL DEFAULT 0,
+	`job2` VARCHAR(20) NULL DEFAULT 'unemployed',
+	`job2_grade` INT NULL DEFAULT 0,
 	`loadout` LONGTEXT NULL DEFAULT NULL,
 	`metadata` LONGTEXT NULL DEFAULT NULL,
 	`position` longtext NULL DEFAULT NULL,
@@ -54,4 +56,25 @@ CREATE TABLE `jobs` (
 	PRIMARY KEY (`name`)
 ) ENGINE=InnoDB;
 
+CREATE TABLE jobs2 (
+	`name` varchar(50) NOT NULL,
+	`label` varchar(50) DEFAULT NULL,
+	
+	PRIMARY KEY (`name`)
+) ENGINE=InnoDB;
+
+CREATE TABLE job2_grades (
+	`id` int(11) NOT NULL,
+	`job2_name` varchar(50) DEFAULT NULL,
+	`grade` int(11) NOT NULL,
+	`name` varchar(50) NOT NULL,
+	`label` varchar(50) NOT NULL,
+	`salary` int(11) NOT NULL,
+	`skin_male` longtext NOT NULL,
+	`skin_female` longtext NOT NULL
+) ENGINE=InnoDB;
+
+INSERT INTO `job2_grades` VALUES (1, 'unemployed', 0, 'unemployed', 'Unemployed', 0, '{}', '{}');
+
+INSERT INTO `jobs2` VALUES ('unemployed','Unemployed');
 INSERT INTO `jobs` VALUES ('unemployed','Unemployed');
